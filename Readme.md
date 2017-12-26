@@ -3,7 +3,7 @@
 - maven项目管理
 - spring-boot + Mybatis + Swagger2
 
-API访问地址：http://localhost:8081/risksyun_server/swagger-ui.html#/
+API访问地址：http://localhost:8081/swagger-ui.html#/
 
 本项目为SpringBoot+Mybatis+Swagger2基础框架
 
