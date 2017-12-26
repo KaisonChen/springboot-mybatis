@@ -1,0 +1,56 @@
+#开发环境配置
+server:
+  port: 8081
+  context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    druid:
+      initial-size: 5
+      min-idle: 5
+      maxActive: 30
+      # 配置获取连接等待超时的时间
+      maxWait: 6000
+    dbcp2:
+      pool-prepared-statements: true
+
+  mail:
+    host: smtp.risksyun.com
+    username: kaison.chen@risksyun.com
+    password:
+    default-encoding: utf-8
+  thymeleaf:
+    prefix: classpath:/templates/
+  mvc:
+    view:
+      prefix: /WEB-INF/templates/
+      suffix: .html
+mybatis:
+  type-aliases-package: com.boot.example.pojo
+  mapper-locations: classpath:mapper/*.xml
+
+#pagehelper分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+  page-size-zero: true
+
+#日志
+logging:
+  level:
+    com.xj.risksyun: info
+
+pageSize : 10
+
+
+
