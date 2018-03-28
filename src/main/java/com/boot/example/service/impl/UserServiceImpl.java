@@ -1,5 +1,6 @@
 package com.boot.example.service.impl;
 
+import com.boot.example.configure.LocaleMessageSourceService;
 import com.boot.example.dao.UserMapper;
 import com.boot.example.pojo.User;
 import com.boot.example.service.UserService;
@@ -22,8 +23,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private LocaleMessageSourceService localeMessageSourceService;
+
     @Override
     public List<User> getUserList() {
+        System.out.println(localeMessageSourceService.getMessage("welcome"));
         return userMapper.getUserList();
     }
 
