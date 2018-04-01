@@ -1,6 +1,7 @@
 package com.boot.example;
 
 import com.boot.example.filter.CorsFilter;
+import com.boot.example.filter.LoginFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,6 +31,22 @@ public class ExampleApplication {
 		registration.setEnabled(false);
 		//过滤器顺序
 		registration.setOrder(1);
+		return registration;
+	}
+
+	@Bean
+	public FilterRegistrationBean loginRegistration() {
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		//注入过滤器
+		registration.setFilter(new LoginFilter());
+		//拦截规则
+		registration.addUrlPatterns("/*");
+		//过滤器名称
+		registration.setName("LoginFilter");
+		//是否自动注册 false 取消Filter的自动注册
+		registration.setEnabled(false);
+		//过滤器顺序
+		registration.setOrder(2);
 		return registration;
 	}
 }
